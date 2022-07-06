@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <my_com1></my_com1>
+        <my_com2></my_com2>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let cmp1 = {
+            template:'<div>첫번째 지역 컴포넌트:{{cmp1Data}}</div>',
+            data:function(){
+                return{
+                    cmp1Data:100
+                }
+            }
+        };
+
+        // 뷰에 컴포넌트 안에 사용되는 값은 해당 컴포넌트 내에서만 사용이 되며 바깥으로 꺼낼 수 없음!
+        let cmp2 = {
+            template:'<div>두번째 지역 컴포넌트:{{cmp2Data}}</div>',
+            data:function(){
+                return{
+                    // cmp2Data:undefined 결과가 나옴!
+                    cmp2Data:cmp1.data.cmp1Data
+                }
+            }
+        };
+
+        new Vue({
+            el:'#app',
+            components:{
+                'my_com1':cmp1,
+                'my_com2':cmp2
+            }
+        });
+    </script>
+</body>
+</html>

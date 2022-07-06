@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네임드뷰 방식 출력(동급으로 넣기)</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 디폴트는 네임속성 정의하지 않는 그 자체로 가능함! 생략 가능한 존재임 -->
+        <router-view name="header"></router-view>
+        <router-view></router-view>
+        <router-view name="footer"></router-view>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+    <script>
+        let Body = {
+            template:'<div>바디바디</div>'
+        };
+
+        let Header = {
+            template:'<div>헤더헤더</div>'
+        };
+
+        let Footer = {
+            template:'<div>푸터푸터</div>'
+        };
+
+        let router = new VueRouter({
+            routes:[
+                {
+                    path:'/',
+                    // 세 개 컴포넌트, 뷰도 3개 필요!
+                    components:{
+                        default:Body,
+                        header:Header,
+                        footer:Footer
+                    }
+                }
+            ]
+        });
+
+        new Vue({
+            // el:'#app',
+            router
+        }).$mount('#app');
+    </script>
+</body>
+</html>

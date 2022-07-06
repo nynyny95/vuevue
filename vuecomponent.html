@@ -1,0 +1,71 @@
+<!-- 기본형태
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+    </script>
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>첫 번째 인스터스 영역: 컴포넌트 등록</h1>
+        <my_component></my_component>
+        <my_local_component></my_local_component>
+    </div>
+    <hr>
+    <div id="app2">
+        <h1>두 번째 인스터스 영역</h1>
+        <my_component></my_component>
+        <my_local_component></my_local_component>
+    </div>
+
+    <!-- 기본 형태 스크립트! -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    <script>
+        // 뷰 에서는 2가지 형태의 컴포넌트 생성 가능!
+        // 전역컴포넌트: 뷰 객체 생성 후 아이디값을 el로 받아오기
+        Vue.component('my_component', {
+            // html 문서에 표시할 데이터(요소), css 속성 정의
+            template:'<div>전역컴포넌트 등록!</div>'
+        });
+        // 지역컴포넌트        
+        let cmp = {
+            template:'<div>지역컴포넌트 등록!</div>'
+        }
+
+        new Vue({
+            // 엘리먼트로 뷰 객체 타겟을 정해줬기 때문에 해당 부분에서만 구현됨
+            el:'#app',
+            components:{
+                'my_local_component':cmp
+            }
+        });
+
+        new Vue({
+            el:'#app2'
+        });
+    </script>
+</body>
+</html>

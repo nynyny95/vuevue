@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <child_com v-on:show-log="printText"></child_com>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        Vue.component('child_com', {
+            // 이벤트 하나 설정(상위 컴포넌트로 값 전달을 위함)
+            template:'<button v-on:click="showLog">show</button>',
+            methods:{
+                showLog:function(){
+                    // $emit 이벤트 발생
+                    this.$emit('show-log',1,2);
+                }
+            }
+        });
+
+        new Vue({
+            el:'#app',
+            data:{
+                message:'수민이가 사다준 맛있는 컴포즈 자바칩~'
+            },
+            methods:{
+                printText:function(x,y){
+                    alert(x+y);
+                    console.log('야홍');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
