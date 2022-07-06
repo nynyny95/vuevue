@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>http통신 구현-엑시오스 문법형식</title>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click="getData">프레임워크 목록 가져오기</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 라이브러리 등록 필요 -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            methods:{
+                // 엑시오스는 데이터를 제이슨 형태(객체형태)로 넘어와서 바로 사용 가능!
+                getData:function(){
+                    axios.get('https://raw.githubusercontent.com/joshua1988/doit-vuejs/master/data/demo.json')
+                    .then(function(response){
+                        console.log(response);
+
+                        // 아래 개념 재정리 필요!
+                        // JSON.stringify()
+                        // JSON.parse()
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
