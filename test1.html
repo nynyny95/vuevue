@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // JSON 구조형식(문자열)
+        let server_obj = '{"이름":"김나연","직업":"갭알자","나이":"28"}';
+        let parse = JSON.parse(server_obj);
+        console.log(parse);
+        // 키 값으로 낱개 밸류 값 가져오기
+        console.log(parse.이름);
+
+        let stringify = JSON.stringify(parse);
+        console.log(stringify);
+        // 주의: 반드시 키, 밸류값은 따옴표로 감싸지는 형태여야 함!
+
+        // 액시오스는 동기화도 순차처리해주는 기능이 있음
+    </script>
+</head>
+<body>
+</body>
+</html>

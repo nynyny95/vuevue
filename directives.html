@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 표현하기</title>
+</head>
+<body>
+    <div id="app">
+        <a v-if="flag">뷰 잡스</a>
+        <ul>
+            <li v-for="system in systems">{{system}}</li>
+        </ul>
+        <p view show="flag">뷰잡스스</p>
+        <h5 v-bind:id="uid">뷰 짱</h5>
+        <button v-on:click="popupAlert">경고창 버튼</button>
+        <button v-on:click="clickBtn(10)">누르시오</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                flag:true,
+                systems:['android', 'ios', 'window'],
+                uid:10
+            },
+            mothods:{
+                popupAlert:function(){
+                    return alert('워닝워닝');
+                },
+                clickBtn:function(num){
+                    alert('click: ' + num);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
+<!-- 
+    -데이터바인딩
+    -자바스크립트 표현식
+    -디렉티브
+        v-if: 뷰 데이터 값의 참, 거짓을 판단하고 HTML태그를 화면에 표시하거나 표시하지 않거나 함
+        v-for: 뷰 데이터 갯수만큼 HTML태그를 반복 출력
+        v-show: HTML태그를 화면에 표시 하거나 하지 않거나 함(v-if와 유사하나 v-if처럼 완전삭제하지 않고 영역은 남겨둠-display:none과 같은 느낌!)
+        v-bind: HTML태그 속성과 뷰 데이터 속성을 연결함
+        v-on: 이벤트를 설정하고 핸들러 함수를 실행함
+        v-model: 폼 태그에서 사용하며 입력 데이터를 뷰 데이터와 즉시 동기화함(watch속성과 연결하여 사용함) -> input, select, textarea 태그에서만 사용 가능
+
+    -이벤트처리
+    -고급템플릿 기법
+ -->

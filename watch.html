@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 발생</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{message}}</p>
+        <button v-on:click="reverseMsg">문자역순</button>
+        <input v-model="message">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                message:'안녕안녕 친구들~'
+            },
+            methods:{
+                reverseMsg:function(){
+                    this.message = this.message.split('').reverse().join('');
+                    return this.message;
+                }
+            },
+            watch:{
+                    message:function(data){
+                        console.log("메시지의 값이 변함: ", data)
+                    }
+            }
+        });
+    </script>
+</body>
+</html>
+
+<!-- 
+    npm install -g @vue/cli-init
+    터미널에 입력하여 설치하기
+
+    워크스페이스에 'webpack' 폴더 생성
+
+    vue init webpack-simple webpack
+
+    타겟 yes, Use sass No 외엔 알아서 입력 후 설정완료
+
+    cd webpack
+    npm install
+    npm run dev
+    차례대로 입력
+ -->
