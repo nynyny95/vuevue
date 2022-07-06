@@ -1,10 +1,10 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>네스티드</title>
 </head>
 <body>
     <div id="app">
@@ -28,7 +28,7 @@
             template:'<p>userProfile</p>'
         };
 
-        let routers = [
+        let routes = [
             {
                 path:'/user',component:User,
                 // 라우트 구조로 되어있고 이를 부르려면 또 다른 라우트 뷰 필요!
@@ -41,7 +41,7 @@
         ];
 
         let router = new VueRouter({
-            routers
+            routes
         });
 
         new Vue({
@@ -49,9 +49,9 @@
         }).$mount('#app');
     </script>
 </body>
-</html> -->
+</html>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -101,4 +101,4 @@
         }).$mount('#app');
     </script>    
 </body>
-</html>
+</html> -->
